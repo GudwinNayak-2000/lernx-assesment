@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio to Text</title>
+</head>
+<body>
+  <input type="file" accept="audio/*" id="audioInput">
+  <div id="output"></div>
+
+  <script>
+    const audioInput = document.getElementById('audioInput');
+    const output = document.getElementById('output');
+
+    audioInput.addEventListener('change', handleAudio);
+
+    function handleAudio(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      
+      reader.onload = function(event) {
+        const audioData = event.target.result;
+        transcribeAudio(audioData);
+      };
+
+      reader.readAsArrayBuffer(file);
+    }
+
+    function transcribeAudio(audioData) {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      audioContext.decodeAudioData(audioData, function(buffer) {
+        const recognizer = new webkitSpeechRecognition(); // Create a speech recognition instance
+
+        recognizer.onresult = function(event) {
+          const transcription = event.results[0][0].transcript;
+          output.textContent = transcription;
+        };
+
+        recognizer.onerror = function(event) {
+          output.textContent = 'Error occurred during transcription';
+        };
+
+        recognizer.start();
+        recognizer.lang = 'en-US'; // Set language to English (change as needed)
+        recognizer.interimResults = true; // Get interim results
+        recognizer.maxAlternatives = 1; // Get the best result only
+
+        const audioSource = audioContext.createBufferSource();
+        audioSource.buffer = buffer;
+        audioSource.connect(audioContext.destination);
+        audioSource.start();
+      });
+    }
+  </script>
+</body>
+</html>

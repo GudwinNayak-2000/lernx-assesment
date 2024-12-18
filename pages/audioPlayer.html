@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>AudioPlayer</title>
+</head>
+   <body class="">
+    <nav id="navBar" class="navbar_index d-none d-lg-flex">
+      <div class="navContainer_index">
+        <div class="p-2 w-100 d-flex align-items-center mx-auto justify-content-between">
+          <img src="../Assets/Logo.svg" alt="Logo"  class="navLogo" />
+             <div class="navLinks">
+            <a class="" href="/">home</a>
+            <a class="" href="../pages/assessments.html">assessments</a> 
+              <a class="dropdown gap-2" id="trainingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Trainings <img src="../Assets/DropdownArrow.svg" alt="" class="dropdownArrow">
+              </a>
+              <ul class="dropdown-menu mt-3" aria-labelledby="trainingsDropdown">
+                <a class="dropdown-item" href="#">Training 1</a>
+                <a class="dropdown-item" href="#">Training 2</a>
+              </ul>          
+              <a class="dropdown gap-2" id="coursesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Courses <img src="../Assets/DropdownArrow.svg" alt="" class="dropdownArrow">
+              </a>
+              <ul class="dropdown-menu mt-3" aria-labelledby="coursesDropdown">
+                <li><a class="dropdown-item" href="#">Course 1</a></li>
+                <li><a class="dropdown-item" href="#">Course 2</a></li>
+              </ul>
+            <a class="" href="../pages/audiobooks.html">academics</a>
+          </div>         
+          <a href="../pages/HomePage.html">
+            <button class="login-btn-index">Login</button>
+          </a>
+        </div>
+        
+      </div>
+      </nav>
+     
+      <nav class="navbar d-lg-none py-3 position-relative">
+        <div class="mobileNavContainer">
+          <img src="../Assets/Logo.svg" alt="Logo"  class="mobileNav"/>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" 
+          data-bs-target="#navbarDrawer" aria-controls="navbarDrawer" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+      </div>
+      </nav>
+  
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarDrawer" aria-labelledby="navbarDrawerLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="navbarDrawerLabel">Menu</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="drawer">
+            <a href="/">home</a>
+            <a href="../pages/assessments.html">assignments</a>
+            <a class="dropdown d-flex gap-2" id="trainingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              Trainings <img src="../Assets/dropdownArrowMobile.svg" alt="" class="dropdownArrow">
+            </a>
+            <ul class="dropdown-menu mt-3" aria-labelledby="trainingsDropdown">
+              <a class="dropdown-item" href="#">Training 1</a>
+              <a class="dropdown-item" href="#">Training 2</a>
+            </ul>  
+            <a class="dropdown gap-2" id="coursesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              Courses <img src="../Assets/dropdownArrowMobile.svg" alt="" class="dropdownArrow">
+            </a>
+            <ul class="dropdown-menu mt-3" aria-labelledby="coursesDropdown">
+              <li><a class="dropdown-item" href="#">Course 1</a></li>
+              <li><a class="dropdown-item" href="#">Course 2</a></li>
+            </ul>
+            <a href="../pages/notes.html">academics</a>
+          </div>
+        </div>
+      </div>
+    <main>
+       <section class="section_1_audioPlayer">
+        <div class="row row-cols-sm-1 row-cols-lg-2">
+            <div class="col-lg-8 music_player_left">
+                <div class="content">
+                    <div class="image-wrapper">
+                      <div class="music-image">
+                        <img src="" alt=""/>
+                      </div>
+                    </div>
+                    <div class="music-titles">
+                      <p class="name">6 Shots - NEFFEX</p>
+                      <p class="artist">NEFFEX</p>
+                    </div>
+                    <div class="time my-2">
+                      <span class="current">0:00</span>
+                      <span class="final">5:30</span>
+                    </div>
+                    <div class="progress-details">
+                      <div class="progress-bar">
+                        <span></span>
+                      </div>
+                     
+                    </div>
+                    <div class="control-btn my-4 d-flex gap-2">
+                      <span class="material-symbols-rounded" id="repeat">repeat</span>
+                      <span class="material-symbols-rounded" id="prev">skip_previous</span>
+                      <div class="play-pause">
+                        <span class="material-symbols-rounded">play_arrow</span>
+                      </div>
+                      <span class="material-symbols-rounded" id="next">skip_next</span>
+                      <span class="material-symbols-rounded" id="shuffle">shuffle</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 music_player_right position-relative">
+                <div class="px-4">
+                    <h2 class="music_current_playing_text">currently playing</h2>
+                    <div class="">
+                        <div class="playlist_container">
+                            <img src="../Assets/PlayIcon.svg" alt="" class="play_icon">
+                            <div class="playlist_right_content mx-3">
+                                <h2 class="playlist_music_current_playing_text">Roadmap to crack UPSC</h2>
+                                <span class="playlist_music_current_playing_time">1:30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="divider">
+                <div class="px-4">
+                    <h2 class="music_current_playing_text">up next</h2>
+                    <div class="">
+                        <div class="playlist_container">
+                            <img src="../Assets/PlayIcon.svg" alt="" class="play_icon">
+                            <div class="playlist_right_content mx-3">
+                                <h2 class="playlist_music_current_playing_text playlist_music_next_text">Roadmap to crack UPSC</h2>
+                                <span class="playlist_music_current_playing_time next-song-duration playlist_music_next_time">1:30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container d-flex justify-content-center">
+                    <button class="explore_btn position-absolute bottom-0 my-4">Explore Directory</button>
+                </div>
+            </div>
+        </div>
+        </section>
+       </div>
+    </main>
+
+
+
+
+    <audio src="/music/music1.mp3" class="main-song"></audio>
+    <script src="../script/playList.js"></script>
+    <script src="../script/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+   </body>
+</html>

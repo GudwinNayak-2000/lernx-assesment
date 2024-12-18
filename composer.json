@@ -1,0 +1,15 @@
+{
+  "name": "lernx/assesments",
+  "description": "This is a Lernx website for Assessements",
+  "type": "project",
+  "license": "ISC",
+  "authors": [
+    {
+      "name": "Viotech Lernx Pvt. Ltd"
+    }
+  ],
+  "require": {
+    "mongodb/mongodb": "^1.17",
+    "vlucas/phpdotenv": "^5.6"
+  }
+}
